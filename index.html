@@ -515,64 +515,88 @@
     footer a { color: #888; text-decoration: none; }
     footer a:hover { color: white; }
 
-    /* DECORATIVE DOT GRID */
-    .dot-bg {
-      position: relative;
-      overflow: hidden;
-    }
-    .dot-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(192,57,43,0.12) 1px, transparent 1px);
-      background-size: 32px 32px;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .dot-bg .section-inner { position: relative; z-index: 1; }
+    /* ===== GLOBAL CENTERING ===== */
+    .section-inner { text-align: center; }
+    .section-inner .lead { margin-left: auto; margin-right: auto; }
+    .step-card, .win-card { text-align: left; }
+    .result-card, .vertical-chip { text-align: center; }
+    .stat-box { text-align: left; }
+    .roi-input-row { justify-content: center; }
 
-    /* SIDE ACCENT BARS */
-    .accent-section {
-      position: relative;
-      overflow: hidden;
+    /* ===== DECORATIVE SHAPES ===== */
+    .deco { position: absolute; pointer-events: none; z-index: 0; border-radius: 50%; }
+    .section-inner, .hero-content { position: relative; z-index: 1; }
+
+    /* How it works — teal/red orbs */
+    #how { position: relative; overflow: hidden; }
+    #how .deco-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(192,57,43,0.13) 0%, transparent 65%);
+      top: -200px; right: -150px;
     }
-    .accent-section::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 4px;
-      background: linear-gradient(180deg, transparent, var(--mmk-red), transparent);
-      border-radius: 2px;
-    }
-    .accent-section::after {
-      content: '';
-      position: absolute;
-      right: 0; top: 20%; bottom: 20%;
-      width: 4px;
-      background: linear-gradient(180deg, transparent, var(--mmk-red), transparent);
-      border-radius: 2px;
+    #how .deco-2 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(192,57,43,0.08) 0%, transparent 65%);
+      bottom: -100px; left: -80px;
     }
 
-    /* DIAGONAL STRIPE OVERLAY for dark sections */
-    .stripe-bg {
-      position: relative;
-      overflow: hidden;
+    /* ROI — grid dots */
+    #roi { position: relative; overflow: hidden; }
+    #roi .deco-dots {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(192,57,43,0.18) 1.5px, transparent 1.5px);
+      background-size: 36px 36px;
     }
-    .stripe-bg::before {
+
+    /* Wins — side glows */
+    #wins { position: relative; overflow: hidden; }
+    #wins .deco-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(192,57,43,0.09) 0%, transparent 60%);
+      top: -200px; left: -200px;
+    }
+    #wins .deco-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(192,57,43,0.07) 0%, transparent 60%);
+      bottom: -150px; right: -150px;
+    }
+
+    /* Verticals — corner shapes */
+    .verticals { position: relative; overflow: hidden; }
+    .verticals .deco-corner-tl {
+      position: absolute; top: 0; left: 0;
+      width: 0; height: 0;
+      border-top: 160px solid rgba(192,57,43,0.08);
+      border-right: 160px solid transparent;
+      border-radius: 0;
+    }
+    .verticals .deco-corner-br {
+      position: absolute; bottom: 0; right: 0;
+      width: 0; height: 0;
+      border-bottom: 160px solid rgba(192,57,43,0.08);
+      border-left: 160px solid transparent;
+    }
+
+    /* Red side accent bars for light sections */
+    #how::before, #roi::before {
       content: '';
       position: absolute;
-      inset: -50%;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.015) 40px,
-        rgba(255,255,255,0.015) 41px
-      );
-      z-index: 0;
-      pointer-events: none;
+      left: 0; top: 10%; bottom: 10%;
+      width: 5px;
+      background: linear-gradient(180deg, transparent, var(--mmk-red) 40%, var(--mmk-red) 60%, transparent);
+      border-radius: 0 3px 3px 0;
+      z-index: 2;
     }
-    .stripe-bg .section-inner { position: relative; z-index: 1; }
+    #how::after, #roi::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 10%; bottom: 10%;
+      width: 5px;
+      background: linear-gradient(180deg, transparent, var(--mmk-red) 40%, var(--mmk-red) 60%, transparent);
+      border-radius: 3px 0 0 3px;
+      z-index: 2;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -639,7 +663,9 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how" class="dot-bg accent-section">
+<section id="how">
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
   <div class="section-inner">
     <div class="section-label">The Solution</div>
     <h2>How Cold-Plus® Works</h2>
@@ -670,7 +696,7 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section class="case-study stripe-bg" id="results">
+<section class="case-study" id="results">
   <div class="section-inner">
     <div class="section-label">Proven Results</div>
     <h2>Third-Party Verified Savings</h2>
@@ -697,7 +723,8 @@
 </section>
 
 <!-- ROI CALCULATOR -->
-<section id="roi" class="dot-bg accent-section">
+<section id="roi">
+  <div class="deco-dots"></div>
   <div class="section-inner">
     <div class="section-label">ROI Calculator</div>
     <h2>What Could You Save?</h2>
@@ -743,6 +770,8 @@
 
 <!-- FOUR WINS -->
 <section id="wins">
+  <div class="deco deco-1"></div>
+  <div class="deco deco-2"></div>
   <div class="section-inner">
     <div class="section-label">Why Cold-Plus®</div>
     <h2>Four Wins in One Treatment</h2>
@@ -773,6 +802,8 @@
 
 <!-- VERTICALS -->
 <section class="verticals">
+  <div class="deco-corner-tl"></div>
+  <div class="deco-corner-br"></div>
   <div class="section-inner">
     <div class="section-label">Who We Serve</div>
     <h2>Built for Western Canada's Industries</h2>
@@ -792,7 +823,7 @@
 </section>
 
 <!-- CONTACT -->
-<section class="contact stripe-bg" id="contact">
+<section class="contact" id="contact">
   <div class="section-inner" style="text-align:center">
     <div class="section-label">Get Started</div>
     <h2>Get Your Free Savings Estimate</h2>
