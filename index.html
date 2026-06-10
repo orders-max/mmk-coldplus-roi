@@ -36,24 +36,25 @@
       top: 0;
       z-index: 100;
       background: var(--mmk-white);
-      border-bottom: 2px solid var(--mmk-red);
-      display: flex;
+      border-bottom: 3px solid var(--mmk-red);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 max(40px, calc(50% - 650px));
-      height: 70px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 0 48px;
+      height: 76px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
     }
 
     .nav-logo img {
-      height: 48px;
+      height: 52px;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 8px;
       list-style: none;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -61,21 +62,25 @@
       color: var(--mmk-dark);
       font-weight: 500;
       font-size: 14px;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
+      letter-spacing: 0.2px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
     }
 
-    .nav-links a:hover { color: var(--mmk-red); }
+    .nav-links a:hover { color: var(--mmk-red); background: rgba(192,57,43,0.06); }
 
     .nav-cta {
-      background: var(--mmk-red);
+      background: var(--mmk-red) !important;
       color: white !important;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 600 !important;
+      padding: 11px 24px !important;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 12px rgba(192,57,43,0.35);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s !important;
     }
 
-    .nav-cta:hover { background: #a93226; color: white !important; }
+    .nav-cta:hover { background: #a93226 !important; box-shadow: 0 6px 18px rgba(192,57,43,0.45); transform: translateY(-1px); color: white !important; }
 
     /* HERO */
     .hero {
@@ -630,8 +635,8 @@
     <li><a href="#how">How It Works</a></li>
     <li><a href="#results">Case Studies</a></li>
     <li><a href="#roi">ROI Calculator</a></li>
-    <li><a href="#contact" class="nav-cta">Get Estimate</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Get Estimate</a>
 </nav>
 
 <!-- HERO -->
