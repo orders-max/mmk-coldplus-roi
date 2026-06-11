@@ -1,14 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Red hexagon fill -->
   <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="#c0392b"/>
+  <!-- White border -->
   <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="6"/>
 
-  <!-- M1: solid rect with V-notch — no diagonal seams -->
-  <path fill-rule="evenodd" fill="white" d="M 26 30 L 47 30 L 47 70 L 26 70 Z  M 31 30 L 42 30 L 36.5 54 Z"/>
+  <!-- MMK — letters x:26–74, y:30–70, sw=5 (smaller, thinner, not touching edges) -->
 
-  <!-- M2: same — also covers the K stem (x=58-63) -->
-  <path fill-rule="evenodd" fill="white" d="M 42 30 L 63 30 L 63 70 L 42 70 Z  M 47 30 L 58 30 L 52.5 54 Z"/>
+  <!-- V1 left stem -->
+  <rect x="26" y="30" width="5" height="40" fill="white"/>
+  <!-- V2 shared stem -->
+  <rect x="42" y="30" width="5" height="40" fill="white"/>
+  <!-- V3 shared stem / K left -->
+  <rect x="58" y="30" width="5" height="40" fill="white"/>
 
-  <!-- K arms extended to x=55 so their near ends are buried in M2's white fill — no visible joint -->
-  <polygon fill="white" points="55,59.4 71.8,28.8 76.2,31.2 55,45.6"/>
-  <polygon fill="white" points="55,30.3 76.2,68.8 71.8,71.2 55,54.4"/>
+  <!-- M1 left diagonal -->
+  <polygon points="33.4,29.4 38.9,53.4 34.1,54.6 28.6,30.6" fill="white"/>
+  <!-- M1 right diagonal -->
+  <polygon points="34.1,53.4 39.6,29.4 44.4,30.6 38.9,54.6" fill="white"/>
+
+  <!-- M2 left diagonal -->
+  <polygon points="49.4,29.4 54.9,53.4 50.1,54.6 44.6,30.6" fill="white"/>
+  <!-- M2 right diagonal -->
+  <polygon points="50.1,53.4 55.6,29.4 60.4,30.6 54.9,54.6" fill="white"/>
+
+  <!-- K upper diagonal -->
+  <polygon points="60.8,48.8 71.8,28.8 76.2,31.2 65.2,51.2" fill="white"/>
+  <!-- K lower diagonal -->
+  <polygon points="65.2,48.8 76.2,68.8 71.8,71.2 60.8,51.2" fill="white"/>
 </svg>
