@@ -1,6 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Red hexagon background -->
-  <polygon points="16,1 29,8.5 29,23.5 16,31 3,23.5 3,8.5" fill="#c0392b"/>
-  <!-- White MMK text -->
-  <text x="16" y="21" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="10.5" fill="white" text-anchor="middle" letter-spacing="-0.5">MMK</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Red filled hexagon (flat-top) -->
+  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="#c0392b"/>
+  <!-- White hexagon border -->
+  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="5" stroke-linejoin="miter"/>
+
+  <!-- MMK monogram — 4 shared vertical stems -->
+  <rect x="16"   y="23" width="7" height="54" fill="white"/>
+  <rect x="36.3" y="23" width="7" height="54" fill="white"/>
+  <rect x="56.7" y="23" width="7" height="54" fill="white"/>
+  <rect x="77"   y="23" width="7" height="54" fill="white"/>
+
+  <!-- M1 left diagonal (V1 top-right → valley) -->
+  <polygon points="26.4,22.2 33.1,49.2 26.3,50.8 19.6,23.8" fill="white"/>
+  <!-- M1 right diagonal (valley → V2 top-left) -->
+  <polygon points="26.3,49.2 32.9,22.2 39.7,23.8 33.1,50.8" fill="white"/>
+
+  <!-- M2 left diagonal (V2 top-right → valley) -->
+  <polygon points="46.7,22.2 53.4,49.2 46.6,50.8 39.9,23.8" fill="white"/>
+  <!-- M2 right diagonal (valley → V3 top-left) -->
+  <polygon points="46.6,49.2 53.3,22.2 60.1,23.8 53.4,50.8" fill="white"/>
+
+  <!-- K upper diagonal (V3 mid-right → V4 top) -->
+  <polygon points="60.5,48.5 73.9,21.5 80.1,24.6 66.8,51.6" fill="white"/>
+  <!-- K lower diagonal (V3 mid-right → V4 bottom) -->
+  <polygon points="60.5,51.6 66.8,48.5 80.1,75.5 73.9,78.6" fill="white"/>
 </svg>
