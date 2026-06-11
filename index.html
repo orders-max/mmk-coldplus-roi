@@ -51,13 +51,9 @@
       position: fixed;
       inset-x: 0; top: 0;
       z-index: 40;
-      transition: background 0.22s ease, border-color 0.22s ease;
-      border-bottom: 1px solid transparent;
-    }
-    header.scrolled {
-      background: rgba(247,248,251,0.93);
-      backdrop-filter: saturate(140%) blur(12px);
-      border-color: var(--border);
+      background: rgba(247,248,251,0.92);
+      backdrop-filter: saturate(140%) blur(14px);
+      border-bottom: 1px solid var(--border);
     }
 
     nav {
@@ -124,6 +120,9 @@
     /* ── LAYOUT ── */
     .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
     section { padding: 96px 0; }
+    .section-tint { background: rgba(255,255,255,0.72) !important; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-center { text-align: center; }
+    .section-center .lead-lg { margin-left: auto; margin-right: auto; }
 
     .eyebrow {
       font-size: 11px;
@@ -167,8 +166,8 @@
 
     /* ── HERO ── */
     .hero {
-      padding-top: 160px;
-      padding-bottom: 100px;
+      padding-top: 200px;
+      padding-bottom: 120px;
       text-align: center;
     }
     .hero .container { display: flex; flex-direction: column; align-items: center; gap: 28px; }
@@ -564,7 +563,7 @@
 </section>
 
 <!-- WHY THIS MATTERS -->
-<section id="why" class="why">
+<section id="why" class="why section-tint">
   <div class="container">
     <div class="why-grid">
       <div>
@@ -641,11 +640,11 @@
 </section>
 
 <!-- CASE STUDIES -->
-<section id="results">
+<section id="results" class="section-tint">
   <div class="container">
-    <div class="eyebrow">Proven Results</div>
-    <h2 class="display-l" style="max-width:680px">Third-party verified.<br />Real facilities. Real meters.</h2>
-    <p class="lead-lg" style="margin-top:16px">Every result below was independently metered. Not modeled. Not estimated. Logged energy readings before and after treatment.</p>
+    <div class="eyebrow" style="text-align:center">Proven Results</div>
+    <h2 class="display-l" style="max-width:680px; margin:0 auto; text-align:center">Third-party verified.<br />Real facilities. Real meters.</h2>
+    <p class="lead-lg" style="margin:16px auto 0; text-align:center">Every result below was independently metered. Not modeled. Not estimated. Logged energy readings before and after treatment.</p>
 
     <div style="margin-top:48px">
       <div class="case-study-hero">
@@ -702,7 +701,7 @@
 </section>
 
 <!-- ROI CALCULATOR -->
-<section id="roi">
+<section id="roi" class="section-tint">
   <div class="container">
     <div class="eyebrow" style="text-align:center">ROI Snapshot</div>
     <h2 class="display-l" style="text-align:center; max-width:620px; margin: 0 auto">What could you save?</h2>
@@ -746,7 +745,7 @@
 </section>
 
 <!-- CFO ANGLE -->
-<section class="cfo">
+<section class="cfo section-tint">
   <div class="container">
     <div class="eyebrow">CFO Angle</div>
     <h2 class="display-l" style="max-width:600px">A CFO-friendly upgrade.</h2>
