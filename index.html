@@ -491,6 +491,40 @@
     }
     .form-submit:hover { opacity: 0.9; }
 
+    /* ── SCROLL PROGRESS BAR ── */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--energy);
+      z-index: 200;
+      transition: width 0.05s linear;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+    .reveal-delay-7 { transition-delay: 0.7s; }
+    .reveal-delay-8 { transition-delay: 0.8s; }
+    .reveal-delay-9 { transition-delay: 0.9s; }
+
+    /* Hero elements start slightly higher (shorter distance) */
+    .hero .reveal { transform: translateY(20px); }
+
     /* ── FOOTER ── */
     footer {
       background: #070a1f; color: rgba(255,255,255,0.4);
@@ -528,6 +562,7 @@
   </style>
 </head>
 <body>
+<div id="scroll-progress"></div>
 <div class="gradient-mesh"></div>
 
 <!-- HEADER -->
@@ -548,14 +583,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="badge">Exclusive Canadian Partner for Cold-Plus®</div>
-    <h1 class="display-xl">Your equipment is working too hard. Cold-Plus® fixes that.</h1>
-    <p>A one-time Synthetic Refrigerant Additive that strips oil fouling from your existing HVAC and chiller systems. No replacement. No downtime. You'll see measurable savings within two weeks.</p>
-    <div class="hero-btns">
+    <div class="badge reveal">Exclusive Canadian Partner for Cold-Plus®</div>
+    <h1 class="display-xl reveal reveal-delay-1">Your equipment is working too hard. Cold-Plus® fixes that.</h1>
+    <p class="reveal reveal-delay-2">A one-time Synthetic Refrigerant Additive that strips oil fouling from your existing HVAC and chiller systems. No replacement. No downtime. You'll see measurable savings within two weeks.</p>
+    <div class="hero-btns reveal reveal-delay-3">
       <a href="#contact" class="btn-primary">Get a Free Savings Estimate</a>
       <a href="#roi" class="btn-outline">See the ROI</a>
     </div>
-    <div class="hero-pills">
+    <div class="hero-pills reveal reveal-delay-4">
       <span>No equipment replacement</span>
       <span>No downtime</span>
       <span>Savings visible within 2 weeks</span>
@@ -569,10 +604,10 @@
   <div class="container">
     <div class="why-grid">
       <div>
-        <div class="eyebrow">Why This Matters</div>
-        <h2 class="display-l">You're paying for energy you're not getting.</h2>
-        <p class="lead-lg" style="margin-top:20px">Compressor oil migrates out of the compressor and coats your heat-transfer surfaces. This fouling layer builds up invisibly, and it gets worse every year. ASHRAE data shows the cumulative damage:</p>
-        <table class="degradation-table" style="margin-top:32px">
+        <div class="eyebrow reveal">Why This Matters</div>
+        <h2 class="display-l reveal reveal-delay-1">You're paying for energy you're not getting.</h2>
+        <p class="lead-lg reveal reveal-delay-2" style="margin-top:20px">Compressor oil migrates out of the compressor and coats your heat-transfer surfaces. This fouling layer builds up invisibly, and it gets worse every year. ASHRAE data shows the cumulative damage:</p>
+        <table class="degradation-table reveal reveal-delay-3" style="margin-top:32px">
           <thead>
             <tr>
               <th>Time Period</th>
@@ -589,12 +624,12 @@
         </table>
       </div>
       <div>
-        <div class="big-stat">20–30%</div>
-        <p class="lead" style="margin-top:12px">peak efficiency loss from oil fouling alone, before factoring in any other degradation.</p>
-        <div class="callout-box">
+        <div class="big-stat reveal counter" data-target="30" data-suffix="%" data-prefix="20–">20–30%</div>
+        <p class="lead reveal reveal-delay-1" style="margin-top:12px">peak efficiency loss from oil fouling alone, before factoring in any other degradation.</p>
+        <div class="callout-box reveal reveal-delay-2">
           On a <strong>$10,000/month</strong> cooling bill, that's up to <strong style="color:var(--energy)">$3,000 wasted every single month.</strong> You're paying for that energy. You're just not getting it.
         </div>
-        <div class="callout-box" style="margin-top:16px; border-color: var(--tech)">
+        <div class="callout-box reveal reveal-delay-3" style="margin-top:16px; border-color: var(--tech)">
           Cold-Plus® works on chillers, rooftop units, split systems, refrigerated trailers, and walk-in coolers. If refrigerant circulates through it, Cold-Plus works.
         </div>
       </div>
@@ -605,32 +640,32 @@
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="container">
-    <div class="eyebrow" style="text-align:center">The Solution</div>
-    <h2 class="display-l" style="text-align:center; margin: 0 auto; max-width:640px">How Cold-Plus® works</h2>
-    <p class="lead" style="text-align:center; margin: 16px auto 0; max-width:580px">A single treatment. No shutdowns. No equipment changes. Cold-Plus® works inside your existing system.</p>
+    <div class="eyebrow reveal" style="text-align:center">The Solution</div>
+    <h2 class="display-l reveal reveal-delay-1" style="text-align:center; margin: 0 auto; max-width:640px">How Cold-Plus® works</h2>
+    <p class="lead reveal reveal-delay-2" style="text-align:center; margin: 16px auto 0; max-width:580px">A single treatment. No shutdowns. No equipment changes. Cold-Plus® works inside your existing system.</p>
     <div class="steps-grid">
-      <div class="step-card">
+      <div class="step-card reveal reveal-delay-1">
         <div class="step-num-wrap">
           <div class="step-num">1</div>
         </div>
         <h3>Removes Oil Fouling</h3>
         <p>Surfactants and detergents dissolve the oil film coating your heat-exchanger surfaces. This is the same film that has been silently dragging down your efficiency since day one.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal reveal-delay-2">
         <div class="step-num-wrap">
           <div class="step-num">2</div>
         </div>
         <h3>Improves Pool Boiling</h3>
         <p>Polymers enhance the refrigerant's phase-change process up to 20% faster, dramatically improving the rate at which heat is absorbed and transferred out of your system.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal reveal-delay-3">
         <div class="step-num-wrap">
           <div class="step-num">3</div>
         </div>
         <h3>Speeds Thermodynamics</h3>
         <p>Nano-polymers reduce surface tension in the refrigerant, allowing faster evaporation and condensation cycles. The system starts moving heat the way it was designed to.</p>
       </div>
-      <div class="step-card">
+      <div class="step-card reveal reveal-delay-4">
         <div class="step-num-wrap">
           <div class="step-num">4</div>
         </div>
@@ -649,55 +684,55 @@
     <p class="lead-lg" style="margin:16px auto 0; text-align:center">Every result below was independently metered. Not modeled. Not estimated. Logged energy readings before and after treatment.</p>
 
     <div style="margin-top:48px">
-      <div class="case-study-hero">
+      <div class="case-study-hero reveal">
         <div class="eyebrow">Federal Facility: Primary Case Study</div>
         <h3 class="display-m" style="color:white; margin-bottom:12px">450-Ton Chiller, Government Building</h3>
         <p>Independently logged kWh readings over 36 months. Results sustained year-over-year with no degradation. Carbon emissions reduction calculated at EPA rates.</p>
         <div class="kpi-row">
-          <div class="kpi">
+          <div class="kpi reveal reveal-delay-1">
             <div class="kpi-tag">Verified</div>
-            <div class="kpi-val">23%</div>
+            <div class="kpi-val counter" data-target="23" data-suffix="%">23%</div>
             <p>kWh reduction, sustained over 3 years</p>
           </div>
-          <div class="kpi">
-            <div class="kpi-val">$180K+</div>
+          <div class="kpi reveal reveal-delay-2">
+            <div class="kpi-val counter" data-target="180" data-prefix="$" data-suffix="K+">$180K+</div>
             <p>Annual energy cost savings</p>
           </div>
-          <div class="kpi">
-            <div class="kpi-val">14 mo</div>
+          <div class="kpi reveal reveal-delay-3">
+            <div class="kpi-val counter" data-target="14" data-suffix=" mo">14 mo</div>
             <p>Payback period on treatment cost</p>
           </div>
-          <div class="kpi">
+          <div class="kpi reveal reveal-delay-4">
             <div class="kpi-val">↓ CO₂</div>
             <p>Verified carbon emissions reduction at EPA rates</p>
           </div>
         </div>
       </div>
 
-      <div class="eyebrow" style="margin-bottom:20px; text-align:center">Other Documented Case Studies</div>
-      <h3 class="display-m" style="max-width:640px; margin:0 auto 12px; text-align:center">Cold-Plus has performed across industries and load profiles.</h3>
-      <p class="lead" style="max-width:600px; margin:0 auto 32px; text-align:center">The federal facility result isn't an outlier. Cold-Plus has been measured across data centers, commercial refrigeration, transport refrigeration, supermarket racks, dairy operations, and more.</p>
+      <div class="eyebrow reveal" style="margin-bottom:20px; text-align:center">Other Documented Case Studies</div>
+      <h3 class="display-m reveal reveal-delay-1" style="max-width:640px; margin:0 auto 12px; text-align:center">Cold-Plus has performed across industries and load profiles.</h3>
+      <p class="lead reveal reveal-delay-2" style="max-width:600px; margin:0 auto 32px; text-align:center">The federal facility result isn't an outlier. Cold-Plus has been measured across data centers, commercial refrigeration, transport refrigeration, supermarket racks, dairy operations, and more.</p>
       <div class="other-cases">
-        <div class="case-card">
+        <div class="case-card reveal reveal-delay-1">
           <div class="icon-wrap">🖥️</div>
-          <div class="case-pct">16%</div>
+          <div class="case-pct counter" data-target="16" data-suffix="%">16%</div>
           <h3>Data Center</h3>
           <p>Electricity reduction on a 20-ton rooftop unit serving a 24/7 data center cooling load. 19-month payback. Independently metered.</p>
         </div>
-        <div class="case-card">
+        <div class="case-card reveal reveal-delay-2">
           <div class="icon-wrap">🏊</div>
-          <div class="case-pct">26%</div>
+          <div class="case-pct counter" data-target="26" data-suffix="%">26%</div>
           <h3>Aquatic Facility Chiller</h3>
           <p>Efficiency increase on a 60-ton chiller serving a marine animal habitat. Continuous-load application.</p>
         </div>
-        <div class="case-card">
+        <div class="case-card reveal reveal-delay-3">
           <div class="icon-wrap">🚛</div>
-          <div class="case-pct">17%</div>
+          <div class="case-pct counter" data-target="17" data-suffix="%">17%</div>
           <h3>Transport Refrigeration</h3>
           <p>Fuel reduction on a Class 8 refrigerated trailer. Same work output. Less energy in.</p>
         </div>
       </div>
-      <p class="lead" style="margin-top:24px; font-size:13px">Additional documented results available across supermarket racks, dairy operations, commercial buildings, and theaters. Contact us for the full case study library.</p>
+      <p class="lead reveal" style="margin-top:24px; font-size:13px">Additional documented results available across supermarket racks, dairy operations, commercial buildings, and theaters. Contact us for the full case study library.</p>
     </div>
   </div>
 </section>
@@ -705,14 +740,14 @@
 <!-- ROI CALCULATOR -->
 <section id="roi" class="section-tint">
   <div class="container">
-    <div class="eyebrow" style="text-align:center">ROI Snapshot</div>
-    <h2 class="display-l" style="text-align:center; max-width:620px; margin: 0 auto">What could you save?</h2>
-    <p class="lead" style="text-align:center; max-width:560px; margin: 16px auto 0">Enter your monthly cooling bill to see your potential annual savings at documented efficiency improvement rates.</p>
-    <div class="roi-input-row" style="justify-content:center">
+    <div class="eyebrow reveal" style="text-align:center">ROI Snapshot</div>
+    <h2 class="display-l reveal reveal-delay-1" style="text-align:center; max-width:620px; margin: 0 auto">What could you save?</h2>
+    <p class="lead reveal reveal-delay-2" style="text-align:center; max-width:560px; margin: 16px auto 0">Enter your monthly cooling bill to see your potential annual savings at documented efficiency improvement rates.</p>
+    <div class="roi-input-row reveal reveal-delay-3" style="justify-content:center">
       <label for="monthly-bill">Monthly Cooling Bill (CAD $):</label>
       <input type="number" id="monthly-bill" placeholder="e.g. 10000" min="0" step="500" oninput="calcROI()" />
     </div>
-    <table>
+    <table class="reveal reveal-delay-4">
       <thead>
         <tr>
           <th>Efficiency Improvement</th>
@@ -749,11 +784,11 @@
 <!-- CFO ANGLE -->
 <section class="cfo section-tint">
   <div class="container">
-    <div class="eyebrow" style="text-align:center">CFO Angle</div>
-    <h2 class="display-l" style="max-width:600px; margin:0 auto; text-align:center">A CFO-friendly upgrade.</h2>
-    <p class="lead-lg" style="margin:16px auto 0; text-align:center">Cold-Plus qualifies as <strong>Preventative Maintenance CapEx.</strong> It's a one-time, capitalizable expenditure that protects existing equipment, extends its operating life, and reduces ongoing utility expense. The savings show up on the utility bill, not the equipment replacement budget.</p>
+    <div class="eyebrow reveal" style="text-align:center">CFO Angle</div>
+    <h2 class="display-l reveal reveal-delay-1" style="max-width:600px; margin:0 auto; text-align:center">A CFO-friendly upgrade.</h2>
+    <p class="lead-lg reveal reveal-delay-2" style="margin:16px auto 0; text-align:center">Cold-Plus qualifies as <strong>Preventative Maintenance CapEx.</strong> It's a one-time, capitalizable expenditure that protects existing equipment, extends its operating life, and reduces ongoing utility expense. The savings show up on the utility bill, not the equipment replacement budget.</p>
     <div class="cfo-grid">
-      <div class="cfo-card replace">
+      <div class="cfo-card replace reveal reveal-delay-3">
         <div class="tag">Replace the unit</div>
         <ul class="cfo-list">
           <li><span class="icon">✕</span> Six- to seven-figure capital outlay</li>
@@ -763,7 +798,7 @@
           <li><span class="icon">✕</span> No carbon credit eligibility</li>
         </ul>
       </div>
-      <div class="cfo-card treat">
+      <div class="cfo-card treat reveal reveal-delay-4">
         <div class="tag">Treat the unit with Cold-Plus®</div>
         <ul class="cfo-list">
           <li><span class="icon" style="color:var(--energy)">✓</span> One-time treatment cost</li>
@@ -781,10 +816,10 @@
 <!-- FOUR WINS -->
 <section id="wins">
   <div class="container">
-    <div class="eyebrow" style="text-align:center">Why Cold-Plus®</div>
-    <h2 class="display-l" style="text-align:center; max-width:560px; margin:0 auto">Four wins in one treatment.</h2>
+    <div class="eyebrow reveal" style="text-align:center">Why Cold-Plus®</div>
+    <h2 class="display-l reveal reveal-delay-1" style="text-align:center; max-width:560px; margin:0 auto">Four wins in one treatment.</h2>
     <div class="wins-grid">
-      <div class="win-card">
+      <div class="win-card reveal reveal-delay-1">
         <div class="win-icon-wrap" style="background:rgba(192,57,43,0.1)">⚡</div>
         <div class="win-big" style="color:var(--energy)">10–25%</div>
         <div class="win-label">HVAC Energy Savings</div>
@@ -794,7 +829,7 @@
           <li>Improved system efficiency across all load conditions</li>
         </ul>
       </div>
-      <div class="win-card">
+      <div class="win-card reveal reveal-delay-2">
         <div class="win-icon-wrap" style="background:rgba(88,204,241,0.1)">❄️</div>
         <div class="win-big" style="color:var(--tech)">20%</div>
         <div class="win-label">Improved Heat Transfer</div>
@@ -804,7 +839,7 @@
           <li>Neutralizes oil fouling and friction losses</li>
         </ul>
       </div>
-      <div class="win-card">
+      <div class="win-card reveal reveal-delay-3">
         <div class="win-icon-wrap" style="background:rgba(48,139,97,0.1)">🔧</div>
         <div class="win-big" style="color:var(--sustain)">1–3 yrs</div>
         <div class="win-label">Added Compressor Life</div>
@@ -814,7 +849,7 @@
           <li>Quieter system operation, reduced maintenance burden</li>
         </ul>
       </div>
-      <div class="win-card">
+      <div class="win-card reveal reveal-delay-4">
         <div class="win-icon-wrap" style="background:rgba(192,57,43,0.07)">🌱</div>
         <div class="win-big" style="color:var(--energy)">Revenue</div>
         <div class="win-label">New Revenue Streams</div>
@@ -831,43 +866,43 @@
 <!-- VERTICALS -->
 <section class="verticals">
   <div class="container">
-    <div class="eyebrow" style="text-align:center">Who We Serve</div>
-    <h2 class="display-l" style="text-align:center; max-width:600px; margin:0 auto">Built for Canadian industry.</h2>
-    <p class="lead" style="text-align:center; max-width:560px; margin:16px auto 0">Cold-Plus has been measured across every major facility type coast to coast. Here's how the math works in each one.</p>
+    <div class="eyebrow reveal" style="text-align:center">Who We Serve</div>
+    <h2 class="display-l reveal reveal-delay-1" style="text-align:center; max-width:600px; margin:0 auto">Built for Canadian industry.</h2>
+    <p class="lead reveal reveal-delay-2" style="text-align:center; max-width:560px; margin:16px auto 0">Cold-Plus has been measured across every major facility type coast to coast. Here's how the math works in each one.</p>
     <div class="verticals-grid">
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-1">
         <div class="v-card-head"><div class="vi">🎰</div><h3>Casinos &amp; Entertainment</h3></div>
         <p>24/7 operations and massive cooling loads make casinos ideal candidates. Continuous runtime means Cold-Plus pays back faster here than almost anywhere else.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-2">
         <div class="v-card-head"><div class="vi">🏨</div><h3>Hotels &amp; Hospitality</h3></div>
         <p>Aging rooftop units, seasonal swings, and guest comfort requirements. One treatment covers the whole property. Savings show up before the next billing cycle.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-3">
         <div class="v-card-head"><div class="vi">🏥</div><h3>Hospitals &amp; Healthcare</h3></div>
         <p>Mission-critical cooling with zero tolerance for downtime. Cold-Plus installs without shutdown, with no disruption to patient environments or air quality systems.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-4">
         <div class="v-card-head"><div class="vi">💻</div><h3>Data Centers</h3></div>
         <p>Precision cooling running non-stop under high density loads. Even a modest 10% reduction in kWh translates to significant savings at data center scale. Documented 16% case on record.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-5">
         <div class="v-card-head"><div class="vi">🏛️</div><h3>Federal &amp; Government</h3></div>
         <p>Our primary third-party case study is a federal facility. A 450-ton chiller with a 23% kWh reduction over 3 years. Savings are documentable for procurement and sustainability reporting.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-6">
         <div class="v-card-head"><div class="vi">🏢</div><h3>Commercial Real Estate</h3></div>
         <p>Lower HVAC operating costs improve NOI directly. Cold-Plus is a single-line CapEx item that pays back through utility savings visible on the next statement period.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-7">
         <div class="v-card-head"><div class="vi">⛏️</div><h3>Mining &amp; Energy</h3></div>
         <p>Remote facilities with high utility costs and limited service access. Cold-Plus extends equipment life and reduces energy draw where replacement is logistically costly and slow.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-8">
         <div class="v-card-head"><div class="vi">🚛</div><h3>Cold Chain &amp; Refrigerated Fleet</h3></div>
         <p>Fuel savings on refrigerated trailers, electricity savings in cold storage warehouses. Documented 17% fuel reduction on Class 8 transport units. Same cargo. Less fuel.</p>
       </div>
-      <div class="v-card">
+      <div class="v-card reveal reveal-delay-9">
         <div class="v-card-head"><div class="vi">🎓</div><h3>Universities &amp; Higher Ed</h3></div>
         <p>Large campuses with aging central plant equipment and sustainability reporting mandates. Cold-Plus addresses energy reduction, equipment longevity, and carbon credit generation in one treatment.</p>
       </div>
@@ -880,9 +915,9 @@
   <div class="container">
     <div class="contact-grid">
       <div>
-        <div class="eyebrow">Get Started</div>
-        <h2 class="display-l" style="color:white; max-width:580px; margin-bottom:20px">Get your free savings estimate.</h2>
-        <p class="lead-lg">Tell us about your facility. We'll review your profile within one business day and send you a personalized ROI report. No commitment required.</p>
+        <div class="eyebrow reveal">Get Started</div>
+        <h2 class="display-l reveal reveal-delay-1" style="color:white; max-width:580px; margin-bottom:20px">Get your free savings estimate.</h2>
+        <p class="lead-lg reveal reveal-delay-2">Tell us about your facility. We'll review your profile within one business day and send you a personalized ROI report. No commitment required.</p>
         <div class="next-steps">
           <div class="next-step">
             <div class="next-num">1</div>
@@ -914,7 +949,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-form">
+      <div class="contact-form reveal reveal-delay-3">
         <form action="https://formsubmit.co/operations@mmksupply.com" method="POST">
           <!-- Formsubmit config -->
           <input type="hidden" name="_subject" value="New Cold-Plus Savings Estimate Request" />
@@ -995,13 +1030,98 @@
 </footer>
 
 <script>
-  // Header scroll
+  // ── SCROLL PROGRESS BAR ──
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }
+
+  // ── HEADER SCROLL EFFECT ──
   const header = document.getElementById('site-header');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 20);
+    updateProgress();
+  }, { passive: true });
+
+  // ── INTERSECTION OBSERVER (fade-up reveals) ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+        // Trigger counter if this element (or a descendant) has data-target
+        triggerCounters(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── COUNTER ANIMATION ──
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1400;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function triggerCounters(root) {
+    const counters = root.classList.contains('counter')
+      ? [root]
+      : root.querySelectorAll('.counter');
+    counters.forEach(el => {
+      if (!el.dataset.counted) {
+        el.dataset.counted = '1';
+        animateCounter(el);
+      }
+    });
+  }
+
+  // Also observe counter elements that are NOT inside a .reveal wrapper
+  document.querySelectorAll('.counter:not(.reveal)').forEach(el => {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = '1';
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    counterObserver.observe(el);
   });
 
-  // ROI Calculator
+  // ── PARALLAX (gradient mesh moves subtly with scroll) ──
+  const mesh = document.querySelector('.gradient-mesh');
+  function updateParallax() {
+    const y = window.scrollY;
+    mesh.style.transform = `translateY(${y * 0.18}px)`;
+  }
+  window.addEventListener('scroll', updateParallax, { passive: true });
+
+  // ── HERO: fire reveals immediately on load ──
+  window.addEventListener('DOMContentLoaded', () => {
+    // Hero items are in view on page load — trigger manually after a short beat
+    setTimeout(() => {
+      document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('visible'), i * 120);
+      });
+    }, 80);
+  });
+
+  // ── ROI CALCULATOR ──
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-CA'); }
   function calcROI() {
     const bill = parseFloat(document.getElementById('monthly-bill').value) || 0;
@@ -1013,7 +1133,7 @@
     });
   }
 
-  // Form submit
+  // ── FORM SUBMIT ──
   function submitForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
