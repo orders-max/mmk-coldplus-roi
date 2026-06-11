@@ -1,18 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Red hexagon -->
+  <!-- Red hexagon fill -->
   <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="#c0392b"/>
   <!-- White border -->
-  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="5"/>
+  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="6"/>
 
-  <!-- Each M is ONE polygon with a built-in V-notch — zero joint artifacts -->
+  <!-- MMK — sw=3.5, letter area x:26–75, y:30–70 -->
+  <!-- Diagonals taper to a single sharp point at valley — no jagged joints -->
 
-  <!-- M1: left stem (x25-28), notch valley at (33.5,53), right stem (x39-42) -->
-  <polygon points="25,30 28,30 33.5,53 39,30 42,30 42,70 25,70" fill="white"/>
+  <!-- Vertical stems -->
+  <rect x="26"  y="30" width="3.5" height="40" fill="white"/>
+  <rect x="42"  y="30" width="3.5" height="40" fill="white"/>
+  <rect x="58"  y="30" width="3.5" height="40" fill="white"/>
 
-  <!-- M2: shares V2 stem with M1, notch valley at (49,53), right stem (x56-59) -->
-  <polygon points="39,30 42,30 49,53 56,30 59,30 59,70 39,70" fill="white"/>
+  <!-- M1 left diagonal — tapers to sharp valley point -->
+  <polygon points="27.8,30.5 31.2,29.5 35.75,52" fill="white"/>
+  <!-- M1 right diagonal — opens from sharp valley point -->
+  <polygon points="35.75,52 40.3,29.5 43.7,30.5" fill="white"/>
 
-  <!-- K: two triangular arms from V3 right-midpoint — no right stem -->
-  <polygon points="59,50 72.4,28.8 75.6,31.2" fill="white"/>
-  <polygon points="59,50 75.6,68.8 72.4,71.2" fill="white"/>
+  <!-- M2 left diagonal -->
+  <polygon points="43.8,30.5 47.2,29.5 51.75,52" fill="white"/>
+  <!-- M2 right diagonal -->
+  <polygon points="51.75,52 56.3,29.5 59.7,30.5" fill="white"/>
+
+  <!-- K upper diagonal — tapers to sharp junction at V3 right edge -->
+  <polygon points="61.5,50 72.5,29.1 75.5,30.9" fill="white"/>
+  <!-- K lower diagonal -->
+  <polygon points="61.5,50 75.5,69.1 72.5,70.9" fill="white"/>
 </svg>
