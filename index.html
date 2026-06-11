@@ -1051,8 +1051,6 @@
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         revealObserver.unobserve(entry.target);
-        // Trigger counter if this element (or a descendant) has data-target
-        triggerCounters(entry.target);
       }
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
@@ -1068,7 +1066,6 @@
     const start = performance.now();
     function step(now) {
       const progress = Math.min((now - start) / duration, 1);
-      // Ease out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(eased * target);
       el.textContent = prefix + current + suffix;
@@ -1077,31 +1074,18 @@
     requestAnimationFrame(step);
   }
 
-  function triggerCounters(root) {
-    const counters = root.classList.contains('counter')
-      ? [root]
-      : root.querySelectorAll('.counter');
-    counters.forEach(el => {
-      if (!el.dataset.counted) {
-        el.dataset.counted = '1';
-        animateCounter(el);
+  // Each counter gets its own observer — fires when the number itself is visible
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = '1';
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
       }
     });
-  }
+  }, { threshold: 0.5 });
 
-  // Also observe counter elements that are NOT inside a .reveal wrapper
-  document.querySelectorAll('.counter:not(.reveal)').forEach(el => {
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.counted) {
-          entry.target.dataset.counted = '1';
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    counterObserver.observe(el);
-  });
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
 
   // ── PARALLAX (gradient mesh moves subtly with scroll) ──
   const mesh = document.querySelector('.gradient-mesh');
