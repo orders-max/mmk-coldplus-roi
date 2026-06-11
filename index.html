@@ -419,15 +419,15 @@
       display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px;
     }
     .v-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: white;
+      border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px 24px;
-      transition: background 0.15s, border-color 0.15s, transform 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
     }
     .v-card:hover {
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(192,57,43,0.4);
+      border-color: rgba(192,57,43,0.35);
+      box-shadow: 0 4px 20px rgba(192,57,43,0.1);
       transform: translateY(-2px);
     }
     .v-card-head {
@@ -435,12 +435,12 @@
     }
     .v-card .vi {
       width: 38px; height: 38px; border-radius: 9px;
-      background: rgba(192,57,43,0.2);
+      background: rgba(192,57,43,0.08);
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
     }
-    .v-card h3 { font-size: 15px; font-weight: 600; color: white; }
-    .v-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .v-card h3 { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .v-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
     /* ── CONTACT ── */
     .contact-section { background: var(--ink); color: white; border-radius: 0; padding: 96px 0; }
@@ -602,7 +602,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how" class="section-dark">
+<section id="how">
   <div class="container">
     <div class="eyebrow" style="text-align:center">The Solution</div>
     <h2 class="display-l" style="text-align:center; margin: 0 auto; max-width:640px">How Cold-Plus® works</h2>
@@ -828,7 +828,7 @@
 </section>
 
 <!-- VERTICALS -->
-<section class="verticals section-dark">
+<section class="verticals">
   <div class="container">
     <div class="eyebrow" style="text-align:center">Who We Serve</div>
     <h2 class="display-l" style="text-align:center; max-width:600px; margin:0 auto">Built for Western Canada's industries.</h2>
