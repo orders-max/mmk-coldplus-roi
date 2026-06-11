@@ -234,7 +234,7 @@
     }
 
     /* ── HOW IT WORKS ── */
-    #how { background: transparent; }
+    #how { background: inherit; }
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -407,14 +407,14 @@
     .section-dark h2, .section-dark h3 { color: white; }
     .section-dark .lead, .section-dark .lead-lg { color: rgba(255,255,255,0.6); }
     .section-dark .step-card {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.14);
     }
-    .section-dark .step-card h3 { color: white; }
-    .section-dark .step-card p { color: rgba(255,255,255,0.55); }
+    .section-dark .step-card h3 { color: white !important; }
+    .section-dark .step-card p { color: rgba(255,255,255,0.72) !important; }
 
     /* ── VERTICALS ── */
-    .verticals { background: transparent; }
+    .verticals { background: inherit; }
     .verticals-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px;
     }
