@@ -40,6 +40,7 @@
       position: fixed;
       inset: 0;
       z-index: -1;
+      will-change: transform;
       background:
         radial-gradient(ellipse 60% 50% at 18% 20%, rgba(192,57,43,0.12) 0%, transparent 70%),
         radial-gradient(ellipse 50% 40% at 82% 30%, rgba(88,204,241,0.1) 0%, transparent 70%),
@@ -1089,11 +1090,19 @@
 
   // ── PARALLAX (gradient mesh moves subtly with scroll) ──
   const mesh = document.querySelector('.gradient-mesh');
+  let ticking = false;
+  let lastScrollY = 0;
   function updateParallax() {
-    const y = window.scrollY;
-    mesh.style.transform = `translateY(${y * 0.18}px)`;
+    mesh.style.transform = `translateY(${lastScrollY * 0.18}px)`;
+    ticking = false;
   }
-  window.addEventListener('scroll', updateParallax, { passive: true });
+  window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
 
   // ── HERO: fire reveals immediately on load ──
   window.addEventListener('DOMContentLoaded', () => {
