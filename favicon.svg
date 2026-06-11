@@ -1,27 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Red filled hexagon (flat-top) -->
+  <!-- Red hexagon (flat-top) -->
   <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="#c0392b"/>
-  <!-- White hexagon border -->
-  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="5" stroke-linejoin="miter"/>
+  <!-- White border -->
+  <polygon points="27.5,11 72.5,11 95,50 72.5,89 27.5,89 5,50" fill="none" stroke="white" stroke-width="4.5"/>
 
-  <!-- MMK monogram — 4 shared vertical stems -->
-  <rect x="16"   y="23" width="7" height="54" fill="white"/>
-  <rect x="36.3" y="23" width="7" height="54" fill="white"/>
-  <rect x="56.7" y="23" width="7" height="54" fill="white"/>
-  <rect x="77"   y="23" width="7" height="54" fill="white"/>
+  <!-- MMK monogram — 3 shared vertical stems, no right stem on K -->
+  <rect x="13"   y="20" width="8" height="60" fill="white"/>
+  <rect x="37.7" y="20" width="8" height="60" fill="white"/>
+  <rect x="62.3" y="20" width="8" height="60" fill="white"/>
 
   <!-- M1 left diagonal (V1 top-right → valley) -->
-  <polygon points="26.4,22.2 33.1,49.2 26.3,50.8 19.6,23.8" fill="white"/>
+  <polygon points="24.9,18.9 33.2,48.9 25.5,51.1 17.2,21.1" fill="white"/>
   <!-- M1 right diagonal (valley → V2 top-left) -->
-  <polygon points="26.3,49.2 32.9,22.2 39.7,23.8 33.1,50.8" fill="white"/>
+  <polygon points="33.8,18.9 41.5,21.1 33.2,51.1 25.5,48.9" fill="white"/>
 
   <!-- M2 left diagonal (V2 top-right → valley) -->
-  <polygon points="46.7,22.2 53.4,49.2 46.6,50.8 39.9,23.8" fill="white"/>
+  <polygon points="49.5,18.9 57.9,48.9 50.2,51.1 41.8,21.1" fill="white"/>
   <!-- M2 right diagonal (valley → V3 top-left) -->
-  <polygon points="46.6,49.2 53.3,22.2 60.1,23.8 53.4,50.8" fill="white"/>
+  <polygon points="58.5,18.9 66.2,21.1 57.9,51.1 50.1,48.9" fill="white"/>
 
-  <!-- K upper diagonal (V3 mid-right → V4 top) -->
-  <polygon points="60.5,48.5 73.9,21.5 80.1,24.6 66.8,51.6" fill="white"/>
-  <!-- K lower diagonal (V3 mid-right → V4 bottom) -->
-  <polygon points="60.5,51.6 66.8,48.5 80.1,75.5 73.9,78.6" fill="white"/>
+  <!-- K upper diagonal (V3 mid-right → upper-right, no right stem) -->
+  <polygon points="66.5,49.0 73.1,24.0 80.9,26.0 74.2,51.0" fill="white"/>
+  <!-- K lower diagonal (V3 mid-right → lower-right, no right stem) -->
+  <polygon points="74.2,49.0 80.9,74.0 73.1,76.0 66.5,51.0" fill="white"/>
 </svg>
