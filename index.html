@@ -951,13 +951,11 @@
           </div>
         </div>
       </div>
-      <div class="contact-form reveal reveal-delay-3">
-        <form action="https://formsubmit.co/753958f18c44d0224561ab2ae25c7895" method="POST">
+      <div class="contact-form reveal reveal-delay-3" id="form-wrapper">
+        <form id="contact-form" onsubmit="submitForm(event)">
           <!-- Formsubmit config -->
           <input type="hidden" name="_subject" value="New Cold-Plus Savings Estimate Request" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_next" value="https://orders-max.github.io/mmk-coldplus-roi/#contact" />
           <div class="form-row">
             <div class="form-group">
               <label>First Name</label>
@@ -1128,18 +1126,36 @@
   }
 
   // ── FORM SUBMIT ──
-  function submitForm(e) {
+  async function submitForm(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Estimate Request Sent!';
-    btn.style.background = '#27ae60';
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    const firstName = form.querySelector('[name="First Name"]').value.trim();
+
+    btn.textContent = 'Sending…';
     btn.disabled = true;
-    setTimeout(() => {
+
+    const data = { _subject: 'New Cold-Plus Savings Estimate Request', _template: 'table' };
+    new FormData(form).forEach((val, key) => { if (!key.startsWith('_')) data[key] = val; });
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/753958f18c44d0224561ab2ae25c7895', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error();
+      document.getElementById('form-wrapper').innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 32px;gap:20px;">
+          <div style="width:64px;height:64px;background:rgba(192,57,43,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;">✓</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:#0a0e2e;margin:0;">Thanks${firstName ? ', ' + firstName : ''}!</h3>
+          <p style="font-size:15px;color:rgba(10,14,46,0.6);max-width:340px;line-height:1.65;margin:0;">We've received your estimate request and will be in touch within one business day.</p>
+        </div>`;
+    } catch {
       btn.textContent = 'Send My Free Estimate →';
-      btn.style.background = '';
       btn.disabled = false;
-      e.target.reset();
-    }, 4000);
+      alert('Something went wrong — please try again or email us directly at operations@mmksupply.com');
+    }
   }
 </script>
 </body>
